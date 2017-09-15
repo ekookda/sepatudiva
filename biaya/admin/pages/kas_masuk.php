@@ -109,7 +109,7 @@
                                 <a class="btn btn-xs btn-info" data-toggle="tooltip" title="Edit Data"
                                    href="index.php?menu=edit_kas_masuk&id=<?= $row['id_piutang']; ?>&kode=<?= $row['id_piutang']; ?>"
                                    role="button"><i class="fa fa-edit"></i></a>
-                                <a onclick="hapus(<?= $row['id_piutang']; ?>)" class="btn btn-xs btn-danger delete-link"
+                                <a onclick="hapus(<?=$row['id_piutang'];?>)" class="btn btn-xs btn-danger delete-link"
                                    data-toggle="tooltip" title="Hapus Data" id="btn_delete" role="button"><i
                                             class="fa fa-trash-o"></i></a>
                             </td>
@@ -176,6 +176,48 @@
             toggleActive: true,
             format: "yyyy-mm-dd"
         });
+
+        hapus = function(id) {
+            var getLink = "<?=base_url();?>admin/pages/process_delete_masuk.php?id=" + id;
+            swal({
+                title: 'Yakin?',
+                text: "Data akan dihapus secara permanent",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085D6',
+                cancelButtonColor: '#D33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then(function() {
+                $.ajax({
+                    url: getLink,
+                    type: "GET",
+
+                    success: function (html) {
+                        if (html == 'true') {
+                            swal({
+                                title: "Berhasil",
+                                text: "Data berhasil di hapus",
+                                type: "success"
+                            }).then(function () {
+                                setTimeout(function () {
+                                    location.reload();
+                                }, 0001);
+                            });
+                        } else {
+                            swal({
+                                title: "Oops",
+                                text: "Data gagal di hapus",
+                                type: "error"
+                            });
+                        }
+                    },
+                    error: function (jqXHR, status, message) {
+                        alert('A jQuery error has occurred. Status: ' + status + '\nmessages: ' + message);
+                    }
+                });
+            });
+            return false;
+        }
     });
 </script>
 

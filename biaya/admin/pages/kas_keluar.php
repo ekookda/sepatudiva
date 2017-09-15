@@ -1,6 +1,9 @@
 <h1 class="page-header">Biaya Pengeluaran</h1>
+
 <a href="index.php?menu=tambah_kas_keluar" class="btn btn-small btn-primary"><i class="fa fa-plus-circle"></i>&nbsp;Entry</a>
+
 <br><br>
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp;Manajemen Biaya Masuk</h3>
@@ -178,6 +181,47 @@
             format: "yyyy-mm-dd"
         });
 
+        hapus = function(id) {
+            var getLink = "<?=base_url();?>admin/pages/process_delete.php?id=" + id;
+            swal({
+                title: 'Yakin?',
+                text: "Data akan dihapus secara permanent",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085D6',
+                cancelButtonColor: '#D33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then(function() {
+                $.ajax({
+                    url: getLink,
+                    type: "GET",
+
+                    success: function (html) {
+                        if (html == 'true') {
+                            swal({
+                                title: "Berhasil",
+                                text: "Data berhasil di hapus",
+                                type: "success"
+                            }).then(function () {
+                                setTimeout(function () {
+                                    location.reload();
+                                }, 0001);
+                            });
+                        } else {
+                            swal({
+                                title: "Oops",
+                                text: "Data gagal di hapus",
+                                type: "error"
+                            });
+                        }
+                    },
+                    error: function (jqXHR, status, message) {
+                        alert('A jQuery error has occurred. Status: ' + status + '\nmessages: ' + message);
+                    }
+                });
+            });
+            return false;
+        }
     });
 </script>
 

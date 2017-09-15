@@ -243,7 +243,7 @@ $(document).ready(function() {
                     }
                 },
                 error: function(jqXHR, status, message) {
-                    alert('A jQuery error has occurred. Status: ');
+                    alert('A jQuery error has occurred. Status: ' + status + '\nmessages: ' + message);
                 }
             });
             return false;
