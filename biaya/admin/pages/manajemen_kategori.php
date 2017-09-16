@@ -1,7 +1,7 @@
 <?php
-$url = (isset($_GET['menu']) ? $_GET['menu'] : false);
-$url = xss_filter($url);
-$explode = explode("_", $url);
+$menu = (isset($_GET['menu']) ? $_GET['menu'] : false);
+$menu = xss_filter($menu);
+$explode = explode("_", $menu);
 $title = implode(" ", $explode);
 ?>
 <!-- Title -->
@@ -12,7 +12,7 @@ $title = implode(" ", $explode);
 	<div class="col-lg-6 col-sm-6">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp;Kas Masuk</h3>
+				<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp;Input Kategori</h3>
 			</div>
 			<div class="panel-body">
 				<div class="row">
@@ -77,8 +77,8 @@ $title = implode(" ", $explode);
 								<td class="text-center"><?=ucfirst($row['nama_kategori']);?></td>
 
 								<td class="text-center">
-									<a class="btn btn-xs btn-info" data-toggle="tooltip" title="Edit Data" href="index.php?menu=edit_kas_masuk&id=<?=$row['id_piutang'];?>&kode=<?=$row['no_akun_kredit'];?>" role="button"><i class="fa fa-edit"></i></a>
-									<a onclick="hapus(<?=$row['id_piutang'];?>)" class="btn btn-xs btn-danger delete-link" data-toggle="tooltip" title="Hapus Data" id="btn_delete" role="button"><i class="fa fa-trash-o"></i></a>
+									<a class="btn btn-xs btn-info" data-toggle="tooltip" title="Edit Data" href="index.php?menu=edit_kategori&id=<?=$row['id_kategori'];?>" role="button"><i class="fa fa-edit"></i></a>
+									<a onclick="hapus(<?=$row['id_kategori'];?>)" class="btn btn-xs btn-danger delete-link" data-toggle="tooltip" title="Hapus Data" id="btn_delete" role="button"><i class="fa fa-trash-o"></i></a>
 								</td>
 							</tr>
 							<?php
@@ -139,6 +139,56 @@ $title = implode(" ", $explode);
                 return false;
             }
         });
+
+		hapus = function(id)
+		{
+			var id = id;
+			var getUrl = "<?=base_url();?>admin/pages/process_delete_kategori.php?id=" + id;
+			swal({
+				title: 'Anda yakin?',
+				text: 'Data akan dihapus dari database',
+				type: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yakin!',
+				showLoaderOnConfirm: true,
+				preConfirm: function(html) {
+					return new Promise(function(resolve, reject) {
+						setTimeout(function() {
+							resolve();
+						}, 2000);
+					});
+				}
+			}).then(function() {
+				$.ajax({
+					url: getUrl,
+					type: "GET",
+					success: function(html) {
+						if (html == 'true') {
+							swal({
+								title: 'Berhasil',
+								text: 'Data berhasil dihapus',
+								type: 'success'
+							}).then(function() {
+								setTimeout(function() {
+									location.reload();
+								}, 0001);
+							});
+						} else {
+							swal({
+								title: 'Berhasil',
+								text: html,
+								type: 'error'
+							});
+						}
+					},
+					error: function(jqXHR, status, message) {
+						alert('status: ' + status + '\nmessages: ' + message);
+					}
+				});
+			});
+		}
 
         // dataTable
         $("#data_kategori").dataTable({

@@ -5,7 +5,7 @@ define('DB_NAME', 'sepatudiva');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'R0ckmyt@');
+define('DB_PASSWORD', '');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
