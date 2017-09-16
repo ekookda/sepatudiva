@@ -1,6 +1,7 @@
 <?php
-$url = (isset($_GET['menu']) ? $_GET['menu'] : false);
-$explode = explode("_", $url);
+$menu = (isset($_GET['menu']) ? $_GET['menu'] : false);
+$menu = xss_filter($menu);
+$explode = explode("_", $menu);
 $title = implode(" ", $explode);
 ?>
 <!-- Title -->
@@ -9,19 +10,17 @@ $title = implode(" ", $explode);
 <!-- Form Entry Kas -->
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp;Kas Keluar</h3>
+        <h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp;Edit Kas Keluar</h3>
     </div>
     <div class="panel-body">
         <div class="row">
-            <form action="<?=base_url();?>admin/pages/process_edit_kas_keluar.php" method="POST" class="form-horizontal" role="form" id="form_entry">
+            <form action="<?=base_url();?>admin/pages/process_edit_kas_keluar.php" method="POST" class="form-horizontal" role="form" id="form_edit">
                 <?php
-                $id = (isset($_GET['id']) ? $_GET['id'] : false);
-                $kode = (isset($_GET['kode']) ? $_GET['kode'] : false);
-                $id = htmlentities($id, ENT_QUOTES);
-                $kode = htmlentities($kode, ENT_QUOTES);
+                $id = (isset($_GET['id']) ? sql_injection($_GET['id']) : false);
+                $kode = (isset($_GET['kode']) ? sql_injection($_GET['kode']) : false);
 
                 // Query Select Where
-                $query = "SELECT hutang.*, kategori.* FROM hutang INNER JOIN kategori ON hutang.kategori_id=kategori.id_kategori WHERE hutang.id_hutang='$id' AND hutang.no_akun_debit='$kode'";
+                $query = "SELECT hutang.*, kategori.* FROM hutang INNER JOIN kategori ON hutang.kategori_id=kategori.id_kategori WHERE hutang.id_hutang='$id' AND hutang.id_hutang='$kode'";
 
                 $qry = $link->query($query);
                 if ($qry->num_rows < 1 || !$qry):
@@ -37,43 +36,34 @@ $title = implode(" ", $explode);
 
                     <!-- Nomor Akun -->
                     <div class="form-group">
-                        <label for="nomor_akun" class="control-label col-sm-4">Nomor Akun</label>
+                        <label for="nama_kreditur" class="control-label col-sm-4">Nama Kreditur</label>
                         <div class="col-sm-8">
-                            <input type="text" name="nomor_akun" id="nomor_akun" class="form-control" required="required" value='<?=$row['no_akun_debit'];?>'>
+                            <input type="text" name="nama_kreditur" id="nama_kreditur" class="form-control" required="required" value='<?=$row['kreditur_hutang'];?>'>
                         </div>
                     </div> <!-- Nomor Akun -->
 
-                    <!-- Nama Akun -->
+                    <!-- jumlah_hutang -->
                     <div class="form-group">
-                        <label for="nama_akun" class="control-label col-sm-4">Nama Akun</label>
+                        <label for="jumlah_hutang" class="control-label col-sm-4">Jumlah</label>
                         <div class="col-sm-8">
-                            <input type="text" name="nama_akun" id="nama_akun" class="form-control" required="required" value='<?=$row['nama_akun'];?>'>
+                            <input type="number" minlength="6" name="jumlah_hutang" id="jumlah_hutang" class="form-control" placeholder="Rp" required="required" value='<?=$row['jumlah_hutang'];?>'>
                             <!-- messages error -->
                             <span id="messagesError" class="error text-danger"><i></i></span>
                         </div>
-                    </div> <!-- Nama Akun -->
+                    </div> <!-- jumlah_hutang -->
 
-                    <!-- Jumlah -->
+                    <!-- tanggal_hutang Kas Keluar -->
                     <div class="form-group">
-                        <label for="jumlah" class="control-label col-sm-4">Jumlah</label>
-                        <div class="col-sm-8">
-                            <input type="number" minlength="6" name="jumlah" id="jumlah" class="form-control" placeholder="Rp" required="required" value='<?=$row['jumlah'];?>'>
-                            <!-- messages error -->
-                            <span id="messagesError" class="error text-danger"><i></i></span>
-                        </div>
-                    </div> <!-- Jumlah -->
-
-                    <!-- Tanggal Kas Keluar -->
-                    <div class="form-group">
-                        <label for="tanggal" class="control-label col-sm-4">Tanggal</label>
+                        <label for="tanggal_hutang" class="control-label col-sm-4">Tanggal</label>
                         <div class="col-sm-6">
-                            <input type="date" name="tanggal" id="tanggal" class="form-control" required="required" value='<?=$row['tanggal_debit'];?>'>
+                            <input type="date" name="tanggal_hutang" id="tanggal_hutang" class="form-control" required="required" value='<?=$row['tanggal_hutang'];?>'>
                             <!-- messages error -->
                             <span id="messagesError" class="error text-danger"><i></i></span>
                         </div>
-                    </div> <!-- Tanggal Kas Keluar -->
+                    </div> <!-- tanggal_hutang Kas Keluar -->
                 </div> <!-- @/.col-sm-6 -->
 
+                <!-- Kategori -->
                 <div class="col-sm-6">
                     <!-- Kategori -->
                     <div class="form-group">
@@ -105,7 +95,7 @@ $title = implode(" ", $explode);
                     <div class="form-group">
                         <label for="status" class="control-label col-sm-4">Status</label>
                         <div class="col-sm-8">
-                            <select name="status" id="status" class="form-control" required="required">
+                            <select name="status_hutang" id="status_hutang" class="form-control" required="required">
                                 <option value="">---- Pilih Status ----</option>
                                 <!-- Ambil data status dari table Status -->
                                 <?php
@@ -113,13 +103,13 @@ $title = implode(" ", $explode);
                                 $qry = $link->query($sql);
                                 if ($qry->num_rows > 0) {
                                     while ($s = $qry->fetch_assoc()):
-                                        if ($s['id_status'] == $row['status_id']) {
+                                        if ($s['nama_status'] == $row['status_hutang']) {
                                             $selected = ' selected="selected"';
                                         } else {
                                             $selected = '';
                                         }
                                 ?>
-                                        <option value="<?=$s['id_status'];?>"<?=$selected;?>><?=ucfirst($s['nama_status']);?></option>
+                                        <option value="<?=$s['nama_status'];?>"<?=$selected;?>><?=ucwords($s['nama_status']);?></option>
                                 <?php
                                     endwhile;
                                 }
@@ -134,7 +124,7 @@ $title = implode(" ", $explode);
                     <div class="form-group">
                         <label for="keterangan" class="control-label col-sm-4">Keterangan</label>
                         <div class="col-sm-8">
-                            <textarea name="keterangan" id="keterangan" rows="4" cols="5" class="form-control" style="resize:none;" required="required"><?=$row['keterangan'];?></textarea>
+                            <textarea name="keterangan_hutang" id="keterangan_hutang" rows="4" cols="5" class="form-control" style="resize:none;" required="required"><?=$row['keterangan_hutang'];?></textarea>
                             <!-- messages error -->
                             <span id="messagesError" class="error text-danger"><i></i></span>
                         </div>
@@ -166,24 +156,30 @@ $(document).ready(function() {
     // });
 
     // Validasi Form Data Biaya Keluar
-    $('#form_entry').validate({
+    $('#form_edit').validate({
         submitHandler: function(form) {
             // ambil value dari form
             var dataId = $('#id_hutang').val();
-            var dataNomorAkun = $('#nomor_akun').val();
-            var dataNamaAkun = $('#nama_akun').val();
+            var dataNamaKreditur = $('#nama_kreditur').val();
             var dataKategori = $('#kategori').val();
-            var dataKeterangan = $('#keterangan').val();
-            var dataJumlah = $('#jumlah').val();
-            var dataTanggal = $('#tanggal').val();
-            var dataStatus = $('#status').val();
+            var dataKeteranganHutang = $('#keterangan_hutang').val();
+            var dataJumlahHutang = $('#jumlah_hutang').val();
+            var dataTanggalHutang = $('#tanggal_hutang').val();
+            var dataStatusHutang = $('#status_hutang').val();
+            var getUrl = $('#form_edit').attr('action');
 
             $.ajax({
-                url : "<?=base_url();?>admin/pages/process_edit_kas_keluar.php",
+                url: getUrl,
                 type: "POST",
-                data: "id_hutang=" + dataId + "&nomor_akun=" + dataNomorAkun + "&nama_akun=" + dataNamaAkun + "&kategori=" + dataKategori + "&keterangan=" + dataKeterangan + "&jumlah=" + dataJumlah + "&tanggal=" + dataTanggal + "&status=" + dataStatus,
-                success: function (html) { // jqXHR -> data
-                    if (html == 'true') {
+                data:  "id_hutang=" + dataId +
+                        "&nama_kreditur=" + dataNamaKreditur +
+                        "&kategori=" + dataKategori +
+                        "&keterangan_hutang=" + dataKeteranganHutang +
+                        "&jumlah_hutang=" + dataJumlahHutang +
+                        "&tanggal_hutang=" + dataTanggalHutang +
+                        "&status_hutang=" + dataStatusHutang,
+                success: function(html) { // jqXHR -> data
+                    if (html === 'true') {
                         swal({
                             title: 'Success',
                             text : 'Data berhasil disimpan!',
@@ -191,19 +187,19 @@ $(document).ready(function() {
                         }).then(function() {
                             setTimeout(function() {
                                 // location.reload();
-                                window.location.href='<?=base_url();?>admin/index.php?menu=kas_keluar'
+                                window.location='<?=base_url();?>admin/index.php?menu=kas_keluar'
                             }, 0001);
                         });
                     } else {
                         swal({
                             title: 'Oops',
-                            text : 'Data gagal disimpan',
+                            text : html,
                             type : 'error'
                         });
                     }
                 },
                 error: function(jqXHR, status, message) {
-                    alert('A jQuery error has occurred. Status: ');
+                    alert('A jQuery error has occurred. Status: ' + status + '\nmessages: ' + message);
                 }
             });
             return false;
