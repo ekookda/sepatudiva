@@ -1,7 +1,7 @@
 <?php
-$url = (isset($_GET['menu']) ? $_GET['menu'] : false);
-$url = xss_filter($url);
-$explode = explode("_", $url);
+$menu = (isset($_GET['menu']) ? $_GET['menu'] : false);
+$menu = xss_filter($menu);
+$explode = explode("_", $menu);
 $title = implode(" ", $explode);
 ?>
 <!-- Title -->

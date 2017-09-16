@@ -44,7 +44,7 @@
 									<div class='tab-pane fade in active' id='home'>
 										<h4>Selamat Datang di Sistem Informasi Pengelolaan Kas </h4>
 									</div>
-													
+
 								</div>
 							</div> <!-- @/.panel-body -->
 						</div> <!-- @/.panel panel-default -->

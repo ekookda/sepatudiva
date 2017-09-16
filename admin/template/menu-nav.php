@@ -14,7 +14,7 @@
             <li class="<?php if ($url == null) { echo 'active'; } ?>"><a href="<?=base_url();?>admin/"><i class="fa fa-home"></i> Dashboard</a></li>
             <li class="<?php if ($url == 'kas_masuk') { echo 'active'; } ?>"><a href="index.php?menu=kas_masuk"><i class="fa fa-sign-in"></i>&nbsp;Pemasukan</a></li>
             <li class="<?php if ($url == 'kas_keluar') { echo 'active'; } ?>"><a href="index.php?menu=kas_keluar"><i class="fa fa-sign-out"></i>&nbsp;Pengeluaran</a></li>
-            <!-- <li class="<?php if ($url == 'manajemen_user') { echo 'active'; } ?>"><a href="index.php?menu=manajemen_user"><i class="fa fa-user"></i>&nbsp;Manajemen User</a></li> -->
+            <li class="<?php if ($url == 'kas_biaya') { echo 'active'; } ?>"><a href="index.php?menu=kas_biaya"><i class="fa fa-user"></i>&nbsp;Kelola Biaya</a></li>
             <li class="<?php if ($url == 'manajemen_kategori') { echo 'active'; } ?>"><a href="index.php?menu=manajemen_kategori"><i class="fa fa-list-alt"></i>&nbsp;Kelola Kategori</a></li>
             <li class="<?php if ($url == 'logout') { echo 'active'; } ?>"><a href="logout.php"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
         </ul>

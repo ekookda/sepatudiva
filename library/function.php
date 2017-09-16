@@ -33,9 +33,9 @@ function redirect($url, $permanent = false)
 }
 
 // base_url
-function base_url($url = 'http://localhost/sepatudiva/biaya/')
+function base_url()
 {
-    return $url;
+    return $url = 'http://localhost/sepatudiva/';
 }
 // if (!function_exists('base_url')) {
 //     function base_url($atRoot=FALSE, $atCore=FALSE, $parse=FALSE)
@@ -93,7 +93,7 @@ function flashdata($name)
 function insert_last_id($table, $column_id)
 {
     global $link;
-    
+
     $query = "SELECT MAX($column_id) AS last_id FROM $table";
     $qry = $link->query($query);
 
