@@ -44,7 +44,7 @@ $title = implode(" ", $explode);
 
                     <!-- jumlah_piutang -->
                     <div class="form-group">
-                        <label for="jumlah_piutang" class="control-label col-sm-4">jumlah_piutang</label>
+                        <label for="jumlah_piutang" class="control-label col-sm-4">Jumlah</label>
                         <div class="col-sm-8">
                             <input type="number" minlength="6" name="jumlah_piutang" id="jumlah_piutang" class="form-control" placeholder="Rp" required="required" value='<?=$row['jumlah_piutang'];?>'>
                             <!-- messages error -->
@@ -54,7 +54,7 @@ $title = implode(" ", $explode);
 
                     <!-- tanggal_piutang Kas Masuk -->
                     <div class="form-group">
-                        <label for="tanggal_piutang" class="control-label col-sm-4">tanggal_piutang</label>
+                        <label for="tanggal_piutang" class="control-label col-sm-4">Tanggal</label>
                         <div class="col-sm-6">
                             <input type="date" name="tanggal_piutang" id="tanggal_piutang" class="form-control" required="required" value='<?=$row['tanggal_piutang'];?>'>
                             <!-- messages error -->
