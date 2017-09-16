@@ -4,25 +4,24 @@ include_once '../../library/koneksi.php';
 include_once '../../library/function.php';
 
 if (isset($_POST)):
-    $nomor_akun = sql_injection($_POST['nomor_akun']);
-    $nama_akun  = sql_injection($_POST['nama_akun']);
-    $tanggal    = sql_injection($_POST['tanggal']);
-    $jumlah     = sql_injection($_POST['jumlah']);
-    $kategori   = sql_injection($_POST['kategori']);
-    $status     = sql_injection($_POST['status']);
-    $keterangan = sql_injection($_POST['keterangan']);
+    $tanggal_hutang    = sql_injection($_POST['tanggal_hutang']);
+    $kreditur_hutang   = sql_injection($_POST['kreditur_hutang']);
+    $jumlah_hutang     = sql_injection($_POST['jumlah_hutang']);
+    $kategori_hutang   = sql_injection($_POST['kategori_hutang']);
+    $keterangan_hutang = sql_injection($_POST['keterangan_hutang']);
+    $status_hutang     = sql_injection($_POST['status_hutang']);
 
     // mengubah format tanggal sesuai format sql
-    $tanggal    = date('Y-m-d', strtotime($tanggal));
+	$tanggal_hutang = date('Y-m-d', strtotime($tanggal_hutang));
 
-    if (!empty($nomor_akun) && !empty($nama_akun) && !empty($kategori) && !empty($keterangan) && !empty($tanggal) && !empty($jumlah) && !empty($status)):
+    if (!empty($tanggal_hutang) && !empty($kreditur_hutang) && !empty($jumlah_hutang) && !empty($kategori_hutang) && !empty($keterangan_hutang) && !empty($status_hutang)):
         // Last ID From Table
         $last_id = insert_last_id('hutang', 'id_hutang');
 
         // prepare statement
-        $query = "INSERT INTO hutang (id_hutang, no_akun_debit, nama_akun, tanggal_debit, jumlah, kategori_id, status_id, keterangan) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO hutang (id_hutang, tanggal_hutang, kategori_id, kreditur_hutang, jumlah_hutang, keterangan_hutang, status_hutang) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $statement = $link->prepare($query);
-        $statement->bind_param("isssssss", $last_id, $nomor_akun, $nama_akun, $tanggal, $jumlah, $kategori, $status, $keterangan);
+        $statement->bind_param("issssss", $last_id, $tanggal_hutang, $kategori_hutang, $kreditur_hutang, $jumlah_hutang, $keterangan_hutang, $status_hutang);
 
         // execute
         $execeute = $statement->execute();

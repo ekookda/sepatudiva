@@ -4,12 +4,12 @@ include_once '../../library/koneksi.php';
 include_once '../../library/function.php';
 
 if (isset($_POST)):
-    $tanggal_piutang = sql_injection($_POST['tanggal_piutang']);
-    $kreditur_piutang = sql_injection($_POST['kreditur_piutang']);
-    $jumlah_piutang = sql_injection($_POST['jumlah_piutang']);
-    $kategori_piutang = sql_injection($_POST['kategori_piutang']);
+    $tanggal_piutang    = sql_injection($_POST['tanggal_piutang']);
+    $kreditur_piutang   = sql_injection($_POST['kreditur_piutang']);
+    $jumlah_piutang     = sql_injection($_POST['jumlah_piutang']);
+    $kategori_piutang   = sql_injection($_POST['kategori_piutang']);
     $keterangan_piutang = sql_injection($_POST['keterangan_piutang']);
-    $status_piutang = sql_injection($_POST['status_piutang']);
+    $status_piutang     = sql_injection($_POST['status_piutang']);
 
     // mengubah format tanggal sesuai format sql
 	$tanggal_piutang = date('Y-m-d', strtotime($tanggal_piutang));

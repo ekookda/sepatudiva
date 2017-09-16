@@ -3,37 +3,30 @@ session_start();
 include_once '../../library/koneksi.php';
 include_once '../../library/function.php';
 
-if (isset($_POST)):
-    $id = sql_injection($_POST['id_hutang']);
-    $nomor_akun = sql_injection($_POST['nomor_akun']);
-    $nama_akun = sql_injection($_POST['nama_akun']);
-    $jumlah = sql_injection($_POST['jumlah']);
-    $tanggal = sql_injection($_POST['tanggal']); // format: 'Y-m-d'
-    $kategori = sql_injection($_POST['kategori']);
-    $status = sql_injection($_POST['status']);
-    $keterangan = sql_injection($_POST['keterangan']);
+if (isset($_POST) && !empty($_POST)):
+    $id                 = sql_injection($_POST['id_hutang']);
+    $tanggal_hutang     = sql_injection($_POST['tanggal_hutang']);
+    $kategori           = sql_injection($_POST['kategori']);
+    $nama_kreditur      = sql_injection($_POST['nama_kreditur']);
+    $jumlah_hutang      = sql_injection($_POST['jumlah_hutang']);
+    $keterangan_hutang  = sql_injection($_POST['keterangan_hutang']);
+    $status_hutang      = sql_injection($_POST['status_hutang']);
 
-    // mengubah format tanggal sesuai format sql
-    // $tanggal    = date('Y-m-d', strtotime($tanggal));
+    // prepare statement
+    $query = "UPDATE `hutang` SET `tanggal_hutang`=?, `kategori_id`=?, `kreditur_hutang`=?, `jumlah_hutang`=?, `keterangan_hutang`=?, `status_hutang`=? WHERE `id_hutang`=?";
+    $statement = $link->prepare($query);
+    $statement->bind_param("sssssss", $tanggal_hutang, $kategori, $nama_kreditur, $jumlah_hutang, $keterangan_hutang, $status_hutang, $id);
 
-    if (!empty($_POST)):
-        // prepare statement
-        $query = "UPDATE hutang SET `no_akun_debit`=?, `nama_akun`=?, `tanggal_debit`=?, `jumlah`=?, `kategori_id`=?, `status_id`=?, `keterangan`=? WHERE id_hutang=?";
-        $statement = $link->prepare($query);
-        $statement->bind_param("ssssssss", $nomor_akun, $nama_akun, $tanggal, $jumlah, $kategori, $status, $keterangan, $id);
-
-        // execute
-        $execeute = $statement->execute();
-        if ($execeute) {
-            echo 'true';
-        } else {
-            echo 'false';
-        }
-
-        // closing
-        $statement->close();
-    else:
+    // execute
+    $execeute = $statement->execute();
+    if ($execeute) {
+        echo 'true';
+    } else {
         echo 'false';
-    endif; // !empty($kategori) && !empty($keterangan) && !empty($tanggal) && !empty($jumlah) && !empty($status)
+    }
+
+    // closing
+    $statement->close();
+    $link->close();
 endif; // !isset($_POST)
 ?>
