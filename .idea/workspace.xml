@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5c98fbff-8b4a-4f5b-be32-67f9ae500272" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/biaya/u5873335_wp143.sql" afterPath="$PROJECT_DIR$/biaya/u5873335_wp143.sql" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/biaya/admin/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3336">
+              <caret line="139" column="36" lean-forward="false" selection-start-line="139" selection-start-column="36" selection-end-line="139" selection-end-column="36" />
+              <folding>
+                <marker date="1505433247458" expanded="true" signature="2494:2709" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kas_masuk.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/biaya/admin/pages/kas_masuk.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="490">
+              <caret line="179" column="8" lean-forward="false" selection-start-line="179" selection-start-column="8" selection-end-line="219" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#6730#6935#0#PHP" expanded="true" />
+                <element signature="e#8542#10178#0#HTML" expanded="false" />
+                <marker date="1505465424746" expanded="true" signature="3378:3528" ph="SELECT SUM(j... piutang" />
+                <marker date="1505465424746" expanded="true" signature="3627:3634" ph="SELECT hutan... hutang" />
+                <marker date="1505465424746" expanded="true" signature="3627:3744" ph="SELECT piuta... piutang" />
+                <marker date="1505465424746" expanded="true" signature="5345:5360" ph="..." />
+                <marker date="1505465424746" expanded="true" signature="5486:5501" ph="..." />
+                <marker date="1505465424746" expanded="true" signature="5615:5630" ph="..." />
+                <marker date="1505465424746" expanded="true" signature="6611:6638" ph="..." />
+                <marker date="1505465424746" expanded="true" signature="7037:7076" ph="SELECT SUM(j... piutang" />
+                <marker date="1505465424746" expanded="true" signature="7037:7090" ph="SELECT SUM(j... piutang" />
+                <marker date="1505465424746" expanded="true" signature="7037:7107" ph="SELECT SUM(j... piutang" />
+                <marker date="1505465424746" expanded="true" signature="7336:7375" ph="SELECT SUM(j... piutang" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kas_keluar.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/biaya/admin/pages/kas_keluar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2542">
+              <caret line="118" column="29" lean-forward="true" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="29" />
+              <folding>
+                <element signature="e#316#322#0#HTML" expanded="true" />
+                <element signature="e#6515#6719#0#PHP" expanded="true" />
+                <marker date="1505465512501" expanded="true" signature="3243:3389" ph="SELECT hutan... hutang" />
+                <marker date="1505465512501" expanded="true" signature="3449:3563" ph="SELECT hutan... hutang" />
+                <marker date="1505465512501" expanded="true" signature="5130:5145" ph="..." />
+                <marker date="1505465512501" expanded="true" signature="5271:5286" ph="..." />
+                <marker date="1505465512501" expanded="true" signature="5400:5415" ph="..." />
+                <marker date="1505465512501" expanded="true" signature="6818:6885" ph="SELECT SUM(j... hutang" />
+                <marker date="1505465512501" expanded="true" signature="7080:7117" ph="SELECT SUM(j... hutang" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="process_delete.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/biaya/admin/pages/process_delete.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding>
+                <marker date="1505465601620" expanded="true" signature="198:238" ph="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>keluar</find>
+      <find>Keluar</find>
+      <find>debit</find>
+      <find>hutang</find>
+      <find>kategori</find>
+      <find>nama_akun</find>
+      <find>piutang</find>
+      <find>id</find>
+      <find>kas_masuk</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>masuk</replace>
+      <replace>Masuk</replace>
+      <replace>kredit</replace>
+      <replace>piutang</replace>
+      <replace>nama_kategori</replace>
+      <replace>id_kategori</replace>
+      <replace>kas_keluar</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/biaya/admin/menu_admin.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/kas_keluar.php" />
+        <option value="$PROJECT_DIR$/biaya/cek_login.php" />
+        <option value="$PROJECT_DIR$/biaya/library/function.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/pages/edit_kas_masuk.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/pages/process_edit_kas_masuk.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/pages/menu_kategori.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/template/menu-nav.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/pages/manajemen_kategori.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/pages/process_tambah_kategori.php" />
+        <option value="$PROJECT_DIR$/biaya/template/javascript.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/pages/search.php" />
+        <option value="$PROJECT_DIR$/biaya/library/koneksi.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/index.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/pages/process_tambah_kas_masuk.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/pages/tambah_kas_masuk.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/pages/tambah_kas_keluar.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/pages/process_delete_masuk.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/pages/kas_masuk.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/pages/kas_keluar.php" />
+        <option value="$PROJECT_DIR$/biaya/admin/pages/process_delete.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="-4" />
+    <option name="width" value="1366" />
+    <option name="height" value="772" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="nodejs_interpreter_path" value="/usr/bin/node" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/biaya/admin/" />
+      <recent name="$PROJECT_DIR$/biaya/admin/pages" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/biaya/admin/pages" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c98fbff-8b4a-4f5b-be32-67f9ae500272" name="Default" comment="" />
+      <created>1504596543667</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1504596543667</updated>
+      <workItem from="1504596545151" duration="346000" />
+      <workItem from="1504596925339" duration="477000" />
+      <workItem from="1504882837682" duration="1473000" />
+      <workItem from="1504917920229" duration="1208000" />
+      <workItem from="1505174083943" duration="15915000" />
+      <workItem from="1505229297532" duration="19546000" />
+      <workItem from="1505285541627" duration="587000" />
+      <workItem from="1505403092704" duration="1664000" />
+      <workItem from="1505431161095" duration="18000" />
+      <workItem from="1505431190753" duration="12518000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="53752000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25183016" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293944" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/kas_masuk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4872">
+          <caret line="206" column="34" lean-forward="true" selection-start-line="206" selection-start-column="34" selection-end-line="206" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#6730#6935#0#PHP" expanded="true" />
+            <element signature="e#8542#10178#0#HTML" expanded="false" />
+            <marker date="1505465424746" expanded="true" signature="3378:3528" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="3627:3634" ph="SELECT hutan... hutang" />
+            <marker date="1505465424746" expanded="true" signature="3627:3744" ph="SELECT piuta... piutang" />
+            <marker date="1505465424746" expanded="true" signature="5345:5360" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="5486:5501" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="5615:5630" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="6611:6638" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="7037:7076" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="7037:7090" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="7037:7107" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="7336:7375" ph="SELECT SUM(j... piutang" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/library/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2352">
+          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/tambah_kas_keluar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1944">
+          <caret line="81" column="37" lean-forward="false" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/kas_masuk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="44" lean-forward="false" selection-start-line="0" selection-start-column="44" selection-end-line="5" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#6730#6935#0#PHP" expanded="true" />
+            <element signature="e#8542#10178#0#HTML" expanded="false" />
+            <marker date="1505465424746" expanded="true" signature="3378:3528" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="3627:3634" ph="SELECT hutan... hutang" />
+            <marker date="1505465424746" expanded="true" signature="3627:3744" ph="SELECT piuta... piutang" />
+            <marker date="1505465424746" expanded="true" signature="5345:5360" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="5486:5501" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="5615:5630" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="6611:6638" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="7037:7076" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="7037:7090" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="7037:7107" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="7336:7375" ph="SELECT SUM(j... piutang" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/library/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/kas_masuk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="44" lean-forward="false" selection-start-line="0" selection-start-column="44" selection-end-line="5" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#6730#6935#0#PHP" expanded="true" />
+            <element signature="e#8542#10178#0#HTML" expanded="false" />
+            <marker date="1505465424746" expanded="true" signature="3378:3528" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="3627:3634" ph="SELECT hutan... hutang" />
+            <marker date="1505465424746" expanded="true" signature="3627:3744" ph="SELECT piuta... piutang" />
+            <marker date="1505465424746" expanded="true" signature="5345:5360" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="5486:5501" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="5615:5630" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="6611:6638" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="7037:7076" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="7037:7090" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="7037:7107" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="7336:7375" ph="SELECT SUM(j... piutang" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/tambah_kas_keluar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1944">
+          <caret line="81" column="37" lean-forward="true" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/library/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2352">
+          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/process_tambah_kategori.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/manajemen_kategori.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="2" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3216">
+          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/cek_login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/kas_keluar.php" />
+    <entry file="file://$PROJECT_DIR$/biaya/admin/menu_admin.php" />
+    <entry file="file://$PROJECT_DIR$/biaya/admin/kas_keluar.php" />
+    <entry file="file://$PROJECT_DIR$/biaya/admin/menu_admin.php" />
+    <entry file="file://$PROJECT_DIR$/biaya/admin/kas_keluar.php" />
+    <entry file="file://$PROJECT_DIR$/biaya/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/edit_kas_keluar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/process_edit_kas_masuk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/manajemen_kategori.php" />
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/manajemen_kategori.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-432">
+          <caret line="18" column="83" lean-forward="false" selection-start-line="18" selection-start-column="83" selection-end-line="18" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/process_tambah_kategori.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/edit_kas_masuk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1660">
+          <caret line="112" column="24" lean-forward="true" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/template/javascript.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="85" lean-forward="false" selection-start-line="2" selection-start-column="85" selection-end-line="2" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/template/menu-nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/process_tambah_kas_keluar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/superglobals/_superglobals.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/library/koneksi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/cek_login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/process_tambah_kas_masuk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+          <folding>
+            <marker date="1505435979623" expanded="true" signature="956:1117" ph="INSERT INTO piutang... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/tambah_kas_keluar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="894">
+          <caret line="245" column="101" lean-forward="true" selection-start-line="245" selection-start-column="26" selection-end-line="245" selection-end-column="101" />
+          <folding>
+            <marker date="1505457892733" expanded="true" signature="3630:3652" ph="SELECT * FRO... kategori" />
+            <marker date="1505457892733" expanded="true" signature="4909:4929" ph="SELECT * FRO... status" />
+            <marker date="1505457892733" expanded="true" signature="8425:8527" ph="SELECT hutan... hutang" />
+            <marker date="1505457892733" expanded="true" signature="9919:9934" ph="..." />
+            <marker date="1505457892733" expanded="true" signature="10116:10131" ph="..." />
+            <marker date="1505457892733" expanded="true" signature="10311:10326" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/library/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2125">
+          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding>
+            <marker date="1505174772158" expanded="true" signature="573:587" ph="SELECT * FRO... ${$table}" />
+            <marker date="1505174772158" expanded="true" signature="2889:2928" ph="SELECT MAX($... ${$table}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/process_edit_kas_keluar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1505055927309" expanded="true" signature="731:878" ph="UPDATE hutan... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/tambah_kas_masuk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="203" column="79" lean-forward="true" selection-start-line="203" selection-start-column="39" selection-end-line="203" selection-end-column="79" />
+          <folding>
+            <marker date="1505436260285" expanded="true" signature="3169:3191" ph="SELECT * FRO... kategori" />
+            <marker date="1505436260285" expanded="true" signature="7501:7606" ph="SELECT piuta... piutang" />
+            <marker date="1505436260285" expanded="true" signature="8926:8941" ph="..." />
+            <marker date="1505436260285" expanded="true" signature="9109:9124" ph="..." />
+            <marker date="1505436260285" expanded="true" signature="9280:9295" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3336">
+          <caret line="139" column="36" lean-forward="false" selection-start-line="139" selection-start-column="36" selection-end-line="139" selection-end-column="36" />
+          <folding>
+            <marker date="1505433247458" expanded="true" signature="2494:2709" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/kas_masuk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="179" column="8" lean-forward="false" selection-start-line="179" selection-start-column="8" selection-end-line="219" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#6730#6935#0#PHP" expanded="true" />
+            <element signature="e#8542#10178#0#HTML" expanded="false" />
+            <marker date="1505465424746" expanded="true" signature="3378:3528" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="3627:3634" ph="SELECT hutan... hutang" />
+            <marker date="1505465424746" expanded="true" signature="3627:3744" ph="SELECT piuta... piutang" />
+            <marker date="1505465424746" expanded="true" signature="5345:5360" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="5486:5501" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="5615:5630" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="6611:6638" ph="..." />
+            <marker date="1505465424746" expanded="true" signature="7037:7076" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="7037:7090" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="7037:7107" ph="SELECT SUM(j... piutang" />
+            <marker date="1505465424746" expanded="true" signature="7336:7375" ph="SELECT SUM(j... piutang" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/process_delete_masuk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="42" />
+          <folding>
+            <marker date="1505465410517" expanded="true" signature="181:223" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/process_delete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <marker date="1505465601620" expanded="true" signature="198:238" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/biaya/admin/pages/kas_keluar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2542">
+          <caret line="118" column="29" lean-forward="true" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="29" />
+          <folding>
+            <element signature="e#316#322#0#HTML" expanded="true" />
+            <element signature="e#6515#6719#0#PHP" expanded="true" />
+            <marker date="1505465512501" expanded="true" signature="3243:3389" ph="SELECT hutan... hutang" />
+            <marker date="1505465512501" expanded="true" signature="3449:3563" ph="SELECT hutan... hutang" />
+            <marker date="1505465512501" expanded="true" signature="5130:5145" ph="..." />
+            <marker date="1505465512501" expanded="true" signature="5271:5286" ph="..." />
+            <marker date="1505465512501" expanded="true" signature="5400:5415" ph="..." />
+            <marker date="1505465512501" expanded="true" signature="6818:6885" ph="SELECT SUM(j... hutang" />
+            <marker date="1505465512501" expanded="true" signature="7080:7117" ph="SELECT SUM(j... hutang" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
