@@ -1,5 +1,5 @@
 <?php
-$menu = (isset($_GET['menu']) ? $_GET['menu'] : false);
+$menu = (isset($_GET['menu']) ? sql_injection($_GET['menu']) : false);
 $menu = xss_filter($menu);
 $explode = explode("_", $menu);
 $title = implode(" ", $explode);

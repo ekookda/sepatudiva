@@ -16,6 +16,7 @@ $title = implode(" ", $explode);
 			</div>
 			<div class="panel-body">
 				<div class="row">
+					<!-- Form add Kategori -->
 					<form action="<?=base_url();?>admin/pages/process_tambah_kategori.php" method="POST" class="form-horizontal" role="form" id="form_entry">
 						<div class="col-sm-12">
 							<!-- Kategori -->
@@ -37,6 +38,7 @@ $title = implode(" ", $explode);
 							</div>
 						</div> <!-- @/.col-sm-6 -->
 					</form>
+					<!-- End Form add Kategori -->
 				</div> <!-- @/.panel-row -->
 			</div> <!-- @/.panel-body -->
 		</div> <!-- @/.panel-default -->
@@ -51,7 +53,7 @@ $title = implode(" ", $explode);
 			</div>
 			<div class="panel-body">
 				<?php
-				$menu = (isset($_GET['menu']) ? $_GET['menu'] : 'example');
+				$menu = (isset($_GET['menu']) ? sql_injection($_GET['menu']) : 'example');
 				$menu = xss_filter($menu);
 				?>
 				<div class="table-responsive">
@@ -77,7 +79,10 @@ $title = implode(" ", $explode);
 								<td class="text-center"><?=ucfirst($row['nama_kategori']);?></td>
 
 								<td class="text-center">
-									<a class="btn btn-xs btn-info" data-toggle="tooltip" title="Edit Data" href="index.php?menu=edit_kategori&id=<?=$row['id_kategori'];?>" role="button"><i class="fa fa-edit"></i></a>
+									<!-- <a class="btn btn-xs btn-info" data-toggle="tooltip" title="Edit Data" href="index.php?menu=edit_kategori&id" role="button"><i class="fa fa-edit"></i></a> -->
+
+									<!-- Edit -->
+									<button type="button" data-target="#modal-edit" class="btn btn-xs btn-info" data-toggle="modal" data-id="<?=$row['id_kategori'];?>"><i class="fa fa-edit"></i></button>
 									<a onclick="hapus(<?=$row['id_kategori'];?>)" class="btn btn-xs btn-danger delete-link" data-toggle="tooltip" title="Hapus Data" id="btn_delete" role="button"><i class="fa fa-trash-o"></i></a>
 								</td>
 							</tr>
@@ -95,6 +100,25 @@ $title = implode(" ", $explode);
 	</div>
 </div>
 <!-- End Data -->
+
+<!-- Form Edit Modal -->
+<div class="modal fade" id="modal-edit" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Edit Kategori</h4>
+			</div>
+			<div class="modal-body">
+				<div id="hasil_data"></div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -194,5 +218,17 @@ $title = implode(" ", $explode);
         $("#data_kategori").dataTable({
             'ordering': false
         });
+
+		$('#modal-edit').on('show.bs.modal', function(e) {
+			var dataIdKategori = $(e.relatedTarget).data('id');
+			$.ajax({
+				url: "<?=base_url();?>admin/pages/edit_kategori.php",
+				type: 'POST',
+				data: 'id=' + dataIdKategori,
+				success: function() {
+					$('#hasil_data').html(data);
+				}
+			});
+		})
     });
 </script>

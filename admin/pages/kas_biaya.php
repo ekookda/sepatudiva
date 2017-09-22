@@ -12,26 +12,38 @@
 		?>
         <div class="table-responsive">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <!-- pencarian berdasarkan tanggal -->
                     <?php
-                    $tgl = (isset($_POST['q']) ? sql_injection($_POST['q']) : false);
-                    if ($tgl) {
-                        $tgl = date('d-m-Y', strtotime($tgl));
+                    if (isset($_POST['start']) && isset($_POST['end'])) {
+                        $start = sql_injection($_POST['start']);
+                        $end = sql_injection($_POST['end']);
+
+                        $from = date('d-m-Y', strtotime($start));
+                        $to = date('d-m-Y', strtotime($end));
+
+                        echo "
+                        <p>Filter berdasarkan tanggal&nbsp;
+                            <span class=\"badge\" style=\"background: #27374b\">" . $from . " s/d " . $to . "</span>
+                        </p>
+                        ";
+                    } else {
+                        $start = FALSE;
+                        $end = FALSE;
                     }
                     ?>
-                    <span>Filter berdasarkan tanggal&nbsp;<span class="badge" style="background: #27374b"><?=$tgl;?></span></span>
                     <div id="sandbox-container">
                         <form method="post" class="form-inline" id="form-search">
                             <div class="form-group" id="sandbox-container">
-                                <div class="input-group date" id="datepicker">
-                                    <input type="text" class="input-sm form-control" name="q" id="keyword" required="required"/>
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <div class="input-daterange input-group" id="datepicker">
+                                    <input type="text" class="input-sm form-control" name="start" required="required" />
+                                    <span class="input-group-addon">to</span>
+                                    <input type="text" class="input-sm form-control" name="end" required="required" />
                                 </div>
                             </div>
                             <!-- Button Submit -->
                             <button type="submit" name="search" id="btn-search" class="btn btn-sm btn-primary">
-                                <i class="fa fa-search"></i>&nbsp;Search
+                                <i class="fa fa-search"></i>&nbsp;Filter
                             </button>
                             <!-- Button Refresh Data -->
                             <button type="button" name="refresh" id="btn-refresh" class="btn btn-sm btn-default btn-refresh">
@@ -61,17 +73,32 @@
                 <tbody>
                 <?php
                 if (isset($_POST['search'])):
-	                $keyword = sql_injection($_POST['q']);
-	                $sql = "SELECT biaya.*, kategori.nama_kategori FROM biaya INNER JOIN kategori ON biaya.kategori_id=kategori.id_kategori WHERE tanggal_biaya='$keyword'";
-	                $query = $link->query($sql);
-                else:
-                    $sql = "SELECT biaya.*, kategori.nama_kategori FROM biaya INNER JOIN kategori ON biaya.kategori_id=kategori.id_kategori";
-                    $query = $link->query($sql);
-                endif;
+                    if (isset($_POST['start']) && isset($_POST['end'])):
+                        $start = sql_injection($_POST['start']);
+                        $end = sql_injection($_POST['end']);
+
+                        $sql = "SELECT biaya.*, kategori.nama_kategori FROM biaya INNER JOIN kategori ON biaya.kategori_id=kategori.id_kategori WHERE biaya.tanggal_biaya>='$start' AND biaya.tanggal_biaya<='$end' ORDER BY biaya.tanggal_biaya ASC";
+                        $query = $link->query($sql);
+                    endif;
+				else:
+					$sql = "SELECT biaya.*, kategori.nama_kategori FROM biaya INNER JOIN kategori ON biaya.kategori_id=kategori.id_kategori";
+					$query = $link->query($sql);
+				endif;
 
 				if ($query->num_rows > 0):
-					$nama_bulan = ['01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April', '05' => 'Mei', '06' => 'Juni',
-					               '07' => 'Juli', '08' => 'Agustus', '09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember'
+					$nama_bulan = [
+                        '01' => 'Januari',
+                        '02' => 'Februari',
+                        '03' => 'Maret',
+                        '04' => 'April',
+                        '05' => 'Mei',
+                        '06' => 'Juni',
+                        '07' => 'Juli',
+                        '08' => 'Agustus',
+                        '09' => 'September',
+                        '10' => 'Oktober',
+                        '11' => 'November',
+                        '12' => 'Desember'
 					];
 					$no = 1;
 					while ($row = $query->fetch_assoc()):
@@ -105,9 +132,9 @@
                             <td class="text-center"><?= $statusName; ?></td>
                             <td class="text-center">
                                 <a class="btn btn-xs btn-info" data-toggle="tooltip" title="Edit Data"
-                                   href="index.php?menu=edit_kas_biaya&id=<?= $row['id_biaya']; ?>&kode=<?= $row['id_biaya']; ?>"
+                                   href="index.php?menu=edit_kas_keluar&id=<?= $row['id_biaya']; ?>&kode=<?= $row['id_biaya']; ?>"
                                    role="button"><i class="fa fa-edit"></i></a>
-                                <a onclick="hapus(<?=$row['id_biaya'];?>)" class="btn btn-xs btn-danger delete-link"
+                                <a onclick="hapus(<?= $row['id_biaya']; ?>)" class="btn btn-xs btn-danger delete-link"
                                    data-toggle="tooltip" title="Hapus Data" id="btn_delete" role="button"><i
                                             class="fa fa-trash-o"></i></a>
                             </td>
@@ -115,33 +142,38 @@
 						<?php
 						$no++;
 					endwhile;
+                else:
+                    echo 'NO';
 				endif;
 				?>
                 </tbody>
                 <tfoot>
                 <tr class="info">
-                    <td colspan="5" class="text-right">Jumlah</td>
+                    <td colspan="6" class="text-right">Jumlah</td>
 					<?php
 					/*
 					 * Informasi sementara menjumlahkan berdasarkan tanggal pencarian
 					 * querynya: SELECT SUM(`jumlah`) FROM `biaya` WHERE `tanggal_kredit` BETWEEN '$tanggal_awal' AND '$tanggal_akhir';
 					 */
-					if (isset($_POST['search'])) {
-					    $where = sql_injection($_POST['q']);
-						$sumQuery = "SELECT SUM(jumlah_biaya) FROM biaya WHERE tanggal_biaya='$where'";
-						$qry = $link->query($sumQuery);
-						$sum = $qry->fetch_assoc();
+					if (isset($_POST['search'])):
+                        if (isset($_POST['start']) && isset($_POST['end'])):
+                            $start = sql_injection($_POST['start']);
+                            $end = sql_injection($_POST['end']);
+                            $sumQuery = "SELECT SUM(jumlah_biaya) FROM biaya WHERE tanggal_biaya>='$start' AND tanggal_biaya<='$end'";
+                            $qry = $link->query($sumQuery);
+                            $sum = $qry->fetch_assoc();
+                        endif;
 
-                        $total = "Rp " . number_format($sum["SUM(jumlah_biaya)"], 0, ',', '.') . ',-';
-                    } else {
+						$total = "Rp " . number_format($sum["SUM(jumlah_biaya)"], 0, ',', '.') . ',-';
+					else:
 						$sumQuery = "SELECT SUM(jumlah_biaya) FROM biaya";
 						$qry = $link->query($sumQuery);
 						$sum = $qry->fetch_assoc();
 
 						$total = "Rp " . number_format($sum["SUM(jumlah_biaya)"], 0, ',', '.') . ',-';
-                    }
+					endif;
 					?>
-                    <td colspan="2" class="text-left"><strong><?= $total; ?></strong></td>
+                    <td colspan="" class="text-left"><strong><?= $total; ?></strong></td>
                 </tr>
                 </tfoot>
             </table>
@@ -166,7 +198,7 @@
             'searching': false
         });
 
-        $('#sandbox-container .input-group.date').datepicker({
+        $('#sandbox-container .input-daterange').datepicker({
             //language: "id",
             todayBtn: "linked",
             autoclose: true,

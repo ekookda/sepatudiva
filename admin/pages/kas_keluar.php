@@ -15,34 +15,55 @@
 		?>
         <div class="table-responsive">
             <div class="row">
-                <div class="col-sm-6">
-                    <!-- pencarian berdasarkan tanggal -->
-					<?php
-					$tgl = (isset($_POST['q']) ? sql_injection($_POST['q']) : false);
-					if ($tgl) {
-						$tgl = date('d-m-Y', strtotime($tgl));
-					}
-					?>
-                    <span>Filter berdasarkan tanggal&nbsp;<span class="badge" style="background: #27374b"><?=$tgl;?></span></span>
-                    <div id="sandbox-container">
-                        <form method="post" class="form-inline" id="form-search">
-                            <div class="form-group" id="sandbox-container">
-                                <div class="input-group date" id="datepicker">
-                                    <input type="text" class="input-sm form-control" name="q" id="keyword" required="required"/>
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                </div>
-                            </div>
-                            <!-- Button Submit -->
-                            <button type="submit" name="search" id="btn-search" class="btn btn-sm btn-primary">
-                                <i class="fa fa-search"></i>&nbsp;Search
-                            </button>
-                            <!-- Button Refresh Data -->
-                            <button type="button" name="refresh" id="btn-refresh" class="btn btn-sm btn-default btn-refresh">
-                                <i class="fa fa-list-alt"></i>&nbsp;Tampilkan Semua
-                            </button>
-                        </form>
+                <div class="col-sm-12">
+                <!-- pencarian berdasarkan tanggal -->
+                <?php
+                $tgl = (isset($_POST['q']) ? sql_injection($_POST['q']) : false);
+
+                if (isset($_POST['start']) && isset($_POST['end'])) {
+                    $start = sql_injection($_POST['start']);
+                    $end = sql_injection($_POST['end']);
+
+                    $from = date('d-m-Y', strtotime($start));
+                    $to = date('d-m-Y', strtotime($end));
+
+                    echo "
+                    <p>Filter berdasarkan tanggal&nbsp;
+                        <span class=\"badge\" style=\"background: #27374b\">" . $from . " s/d " . $to . "</span>
+                    </p>
+                    ";
+                } else {
+                    $start = FALSE;
+                    $end = FALSE;
+                }
+
+                ?>
+
+                <form method="post" class="form-inline" id="form-search">
+                    <div class="form-group" id="sandbox-container">
+                    <!--
+                        <div class="input-group date" id="datepicker">
+                            <input type="text" class="input-sm form-control" name="q" id="keyword" required="required"/>
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    -->
+                        <div class="input-daterange input-group" id="datepicker">
+                            <input type="text" class="input-sm form-control" name="start" required="required" />
+                            <span class="input-group-addon">to</span>
+                            <input type="text" class="input-sm form-control" name="end" required="required" />
+                        </div>
                     </div>
-                </div>
+
+                    <!-- Button Submit -->
+                    <button type="submit" name="search" id="btn-search" class="btn btn-sm btn-primary">
+                        <i class="fa fa-search"></i>&nbsp;Search
+                    </button>
+                    <!-- Button Refresh Data -->
+                    <button type="button" name="refresh" id="btn-refresh" class="btn btn-sm btn-default btn-refresh">
+                        <i class="fa fa-list-alt"></i>&nbsp;Tampilkan Semua
+                    </button>
+                </form>
+            </div>
             </div>
 
             <br>
@@ -65,17 +86,32 @@
                 <tbody>
 				<?php
 				if (isset($_POST['search'])):
-					$keyword = sql_injection($_POST['q']);
-					$sql = "SELECT hutang.*, kategori.nama_kategori FROM hutang INNER JOIN kategori ON hutang.kategori_id=kategori.id_kategori WHERE tanggal_hutang='$keyword'";
-					$query = $link->query($sql);
+                    if (isset($_POST['start']) && isset($_POST['end'])):
+                        $start = sql_injection($_POST['start']);
+                        $end = sql_injection($_POST['end']);
+
+                        $sql = "SELECT hutang.*, kategori.nama_kategori FROM hutang INNER JOIN kategori ON hutang.kategori_id=kategori.id_kategori WHERE hutang.tanggal_hutang>='$start' AND hutang.tanggal_hutang<='$end' ORDER BY hutang.tanggal_hutang ASC";
+                        $query = $link->query($sql);
+                    endif;
 				else:
 					$sql = "SELECT hutang.*, kategori.nama_kategori FROM hutang INNER JOIN kategori ON hutang.kategori_id=kategori.id_kategori";
 					$query = $link->query($sql);
 				endif;
 
 				if ($query->num_rows > 0):
-					$nama_bulan = ['01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April', '05' => 'Mei', '06' => 'Juni',
-					               '07' => 'Juli', '08' => 'Agustus', '09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember'
+					$nama_bulan = [
+                        '01' => 'Januari',
+                        '02' => 'Februari',
+                        '03' => 'Maret',
+                        '04' => 'April',
+                        '05' => 'Mei',
+                        '06' => 'Juni',
+                        '07' => 'Juli',
+                        '08' => 'Agustus',
+                        '09' => 'September',
+                        '10' => 'Oktober',
+                        '11' => 'November',
+                        '12' => 'Desember'
 					];
 					$no = 1;
 					while ($row = $query->fetch_assoc()):
@@ -120,6 +156,8 @@
 						<?php
 						$no++;
 					endwhile;
+                else:
+                    echo 'NO';
 				endif;
 				?>
                 </tbody>
@@ -131,20 +169,23 @@
 					 * Informasi sementara menjumlahkan berdasarkan tanggal pencarian
 					 * querynya: SELECT SUM(`jumlah`) FROM `hutang` WHERE `tanggal_kredit` BETWEEN '$tanggal_awal' AND '$tanggal_akhir';
 					 */
-					if (isset($_POST['search'])) {
-						$where = sql_injection($_POST['q']);
-						$sumQuery = "SELECT SUM(jumlah_hutang) FROM hutang WHERE tanggal_hutang='$where'";
-						$qry = $link->query($sumQuery);
-						$sum = $qry->fetch_assoc();
+					if (isset($_POST['search'])):
+                        if (isset($_POST['start']) && isset($_POST['end'])):
+                            $start = sql_injection($_POST['start']);
+                            $end = sql_injection($_POST['end']);
+                            $sumQuery = "SELECT SUM(jumlah_hutang) FROM hutang WHERE tanggal_hutang>='$start' AND tanggal_hutang<='$end'";
+                            $qry = $link->query($sumQuery);
+                            $sum = $qry->fetch_assoc();
+                        endif;
 
 						$total = "Rp " . number_format($sum["SUM(jumlah_hutang)"], 0, ',', '.') . ',-';
-					} else {
+					else:
 						$sumQuery = "SELECT SUM(jumlah_hutang) FROM hutang";
 						$qry = $link->query($sumQuery);
 						$sum = $qry->fetch_assoc();
 
 						$total = "Rp " . number_format($sum["SUM(jumlah_hutang)"], 0, ',', '.') . ',-';
-					}
+					endif;
 					?>
                     <td colspan="2" class="text-left"><strong><?= $total; ?></strong></td>
                 </tr>
@@ -172,7 +213,7 @@
             'searching': false
         });
 
-        $('#sandbox-container .input-group.date').datepicker({
+        $('#sandbox-container .input-daterange').datepicker({
             //language: "id",
             todayBtn: "linked",
             autoclose: true,
